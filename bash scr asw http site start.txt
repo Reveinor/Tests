@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "---------------------START SCRIPTS-------------------------------"
+yum -y update
+sudo yum install epel-release 			#Установка зависимостей для Ansible
+sudo amazon-linux-extras install epel
+sudo sudo yum install software-properties-common
+sudo yum install ansible			 	#Установка Ansible
+yum -y install httpd 					#Установка Appach
+echo "<html><body bgcolor=black><center><h2><p><font color=red>Hello 4uvaki</h2></center></body></html>" > /var/www/html/index.html
+#aws s3 s3://твой адрес /var/www/html 	#Выгружаем данные из aws s3
+sudo service httpd start
+chkconfig httpd on
+echo "UserData executed on $(data)" >> /var/www/html/log.txt
+echo "----------------------FINISH-------------------------------------"
